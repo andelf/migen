@@ -369,6 +369,9 @@ class Signal(_Value):
         if bits_sign is None:
             if min is None:
                 min = 0
+                # handle Signal(max=1) condition
+                if max == 1:
+                    max = 2
             if max is None:
                 max = 2
             max -= 1  # make both bounds inclusive
